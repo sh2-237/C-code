@@ -435,50 +435,56 @@
 #pragma endregion
 
 
+#pragma region Bubble_Sort (泛用)
 
-int cmp_int(const void* p1, const void* p2) {
-    return *((int*)p1) - *((int*)p2);
-}
+//int cmp_int(const void* p1, const void* p2) {
+//    return *((int*)p1) - *((int*)p2);
+//}
+//
+//void Swap(char* buf1, char* buf2, size_t width) {
+//    char tmp = 0;
+//    for (int i = 0; i < width; i++) {
+//        tmp = *buf1;
+//        *buf1 = *buf2;
+//        *buf2 = tmp;
+//
+//        buf1++;
+//        buf2++;
+//    }
+//}
+//
+//void bubble_sort(void* base, size_t sz, size_t width, int (*cmp)(const void* p1, const void* p2)) {
+//    for (int i = 0; i < sz; i++) {
+//        for (int j = 0; j < sz - 1 - i; j++) {
+//            char* current = (char*)base + j * width;
+//            char* next = (char*)base + (j + 1) * width;
+//            if (cmp(current, next) > 0) {
+//                Swap(current, next, width);
+//            }
+//        }
+//    }
+//}
+//
+//void print_int(int* arr, size_t sz) {
+//    for (int i = 0; i < sz; i++) {
+//        printf("%d ", arr[i]);
+//    }
+//    printf("\n");
+//}
+//
+//void test4() {
+//    int arr[] = { 2, 3, 5, 6, 8, 3, 2, 5, 7 };
+//    int sz = sizeof(arr) / sizeof(arr[0]);
+//    bubble_sort(arr, sz, sizeof(arr[0]), cmp_int);
+//    print_int(arr, sz);
+//}
+//
+//int main() {
+//    test4();
+//    return 0;
+//}
 
-void Swap(char* buf1, char* buf2, size_t width) {
-    char tmp = 0;
-    for (int i = 0; i < width; i++) {
-        tmp = *buf1;
-        *buf1 = *buf2;
-        *buf2 = tmp;
 
-        buf1++;
-        buf2++;
-    }
-}
+#pragma endregion
 
-void bubble_sort(void* base, size_t sz, size_t width, int (*cmp)(const void* p1, const void* p2)) {
-    for (int i = 0; i < sz; i++) {
-        for (int j = 0; j < sz - 1 - i; j++) {
-            char* current = (char*)base + j * width;
-            char* next = (char*)base + (j + 1) * width;
-            if (cmp(current, next) > 0) {
-                Swap(current, next, width);
-            }
-        }
-    }
-}
 
-void print_int(int* arr, size_t sz) {
-    for (int i = 0; i < sz; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-}
-
-void test4() {
-    int arr[] = { 2, 3, 5, 6, 8, 3, 2, 5, 7 };
-    int sz = sizeof(arr) / sizeof(arr[0]);
-    bubble_sort(arr, sz, sizeof(arr[0]), cmp_int);
-    print_int(arr, sz);
-}
-
-int main() {
-    test4();
-    return 0;
-}
