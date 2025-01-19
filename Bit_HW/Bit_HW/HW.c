@@ -56,10 +56,50 @@ int div(int a, int b) {
 }
 
 
+#pragma region 模擬實現字符串相關函數
 
+size_t my_strlen(const char* str1) {
+	size_t len = 0;
+	while (*str1 != '\0') {
+		len++;
+		str1++;
+	}
+	return len;
+}
 
+char* my_strcpy(char* dest, const char* src) {
+	char* ret = dest;
+	while ((*dest++ = *src++)) {
+		;
+	}
+	return ret;
+}
 
-int main() {
+int my_strcmp(char* str1, char* str2) {
+	while (*str1 == *str2) {
+		if (*str1 == '\0') {
+			return 0;
+		}
+		str1++;
+		str2++;
+	}
+	return (*str1 - *str2);
+}
+
+char* my_strcat(char* dest, char* src) {
+	char* ret = dest;
+	while (*dest != '\0') {
+		dest++;
+	}
+	while (*dest++ = *src++) {
+		;
+	}
+	return ret;
+
+}
+#pragma endregion
+
+ int main() {
 	#pragma region 猜兇手
 	/*
 	A说：不是我。
@@ -220,28 +260,51 @@ int main() {
 	//} while (input);
 	#pragma endregion
 
-#pragma region 單身狗2
+	#pragma region 單身狗2
 
-int num[] = { 1,2,3,4,5,1,2,3,4,6 };
-size_t sz = sizeof(num) / sizeof(num[0]);
-
-for (int i = 0; i < sz; i++) {
-	int count = 1;
-	for (int j = i+1; j < sz; j++) {
-		if (num[i] == num[j]) {
-			count++;
-			num[j] = 0;
-		}
-
-	}
-	if (count == 1 && num[i] != 0) {
-		printf("%d ", num[i]);
-	}
-
-}
+//int num[] = { 1,2,3,4,5,1,2,3,4,6 };
+//size_t sz = sizeof(num) / sizeof(num[0]);
+//
+//for (int i = 0; i < sz; i++) {
+//	int count = 1;
+//	for (int j = i+1; j < sz; j++) {
+//		if (num[i] == num[j]) {
+//			count++;
+//			num[j] = 0;
+//		}
+//
+//	}
+//	if (count == 1 && num[i] != 0) {
+//		printf("%d ", num[i]);
+//	}
+//
+//}
 
 #pragma endregion
 
+
+// 打印1~100之間的素數
+//int m, n;
+//while (scanf("%d %d", &m, &n) != EOF) {
+//	int k = m > n ? n : m; //取比較小的那個數
+//	int l = m > n ? m : n; //取比較大的那個數
+//	for (int i = 1; i <= l; i++) {
+//		k *= i;
+//		if (k % l == 0) {
+//			printf("%d\n", k);
+//			break;
+//		}
+//		else {
+//			k = m > n ? n : m; // Recovery
+//		}
+//	}
+//}
+
+
+	//char src[] = "abcdef";
+	//char dest[20] = "abcddf";
+	//my_strcat(dest, src);
+	//printf("%s", dest);
 	return 0;
 }
 
